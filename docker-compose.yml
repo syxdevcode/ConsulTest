@@ -6,3 +6,4 @@ services:
     build:
       context: .
       dockerfile: ConsulTest/Dockerfile
+    network_mode: "host"
