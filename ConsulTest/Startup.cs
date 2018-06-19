@@ -25,7 +25,7 @@ namespace ConsulTest
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IApplicationLifetime lifetime)
         {
             if (env.IsDevelopment())
             {
@@ -45,6 +45,17 @@ namespace ConsulTest
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            // register this service
+            ServiceEntity serviceEntity = new ServiceEntity
+            {
+                IP = Configuration["Service:Name"],// NetworkHelper.LocalIPAddress,
+                Port = Convert.ToInt32(Configuration["Service:Port"]),
+                ServiceName = Configuration["Service:Name"],
+                ConsulIP = Configuration["Consul:IP"],
+                ConsulPort = Convert.ToInt32(Configuration["Consul:Port"])
+            };
+            app.RegisterWithConsul(lifetime, serviceEntity);
         }
     }
 }
