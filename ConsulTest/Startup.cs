@@ -49,7 +49,7 @@ namespace ConsulTest
             // register this service
             ServiceEntity serviceEntity = new ServiceEntity
             {
-                IP = Configuration["Service:Name"],// NetworkHelper.LocalIPAddress,
+                IP = Configuration["Service:IP"],// NetworkHelper.LocalIPAddress,
                 Port = Convert.ToInt32(Configuration["Service:Port"]),
                 ServiceName = Configuration["Service:Name"],
                 ConsulIP = Configuration["Consul:IP"],
