@@ -1,8 +1,8 @@
 version: '3.4'
 
 services:
-  consultest:
-    image: ${DOCKER_REGISTRY}consultest
+  noticeservice:
+    image: ${DOCKER_REGISTRY}noticeservice
     build:
       context: .
       dockerfile: Dockerfile
