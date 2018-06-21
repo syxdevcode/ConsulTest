@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  consultest:
+    image: ${DOCKER_REGISTRY}consultest
+    build:
+      context: .
+      dockerfile: Dockerfile
