@@ -7,7 +7,6 @@ WORKDIR /src
 COPY NoticeService.csproj NoticeService/
 RUN dotnet restore NoticeService/NoticeService.csproj
 COPY . .
-WORKDIR /src/NoticeService
 RUN dotnet build NoticeService.csproj -c Release -o /app
 
 FROM build AS publish
