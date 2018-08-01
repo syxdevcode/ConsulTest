@@ -6,3 +6,8 @@ services:
     build:
       context: .
       dockerfile: ConsulTest/Dockerfile
+   noticeservice:
+    image: ${DOCKER_REGISTRY}noticeservice
+    build:
+      context: .
+      dockerfile: NoticeService/Dockerfile
